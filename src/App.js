@@ -1,12 +1,7 @@
 import MUIDataTable from "mui-datatables";
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@mui/material/styles";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import axios from "axios"
@@ -28,11 +23,7 @@ function App() {
   const [responsive, setResponsive] = useState("horizontal");
   const [tableBodyHeight, setTableBodyHeight] = useState("400px");
   const [tableBodyMaxHeight, setTableBodyMaxHeight] = useState("");
-  const [searchBtn, setSearchBtn] = useState(true);
-  const [downloadBtn, setDownloadBtn] = useState(true);
-  const [printBtn, setPrintBtn] = useState(true);
-  const [viewColumnBtn, setViewColumnBtn] = useState(true);
-  const [filterBtn, setFilterBtn] = useState(true);
+  
   const isSmallScreen = useMediaQuery("(max-width:600px)")
   const columns = [
     { name: "Cliente", options: { filterOptions: { fullWidth: true } } },
@@ -45,12 +36,7 @@ function App() {
   const [isReadyForInstall, setIsReadyForInstall] = useState(false);
 
   const options = {
-    search: searchBtn,
-    download: downloadBtn,
-    print: printBtn,
-    viewColumns: viewColumnBtn,
-    filter: filterBtn,
-    filterType: "dropdown",
+  
     responsive: isSmallScreen ? "stacked" : responsive,
     tableBodyHeight: isSmallScreen ? "auto" : tableBodyHeight,
     tableBodyMaxHeight: isSmallScreen ? "none" : tableBodyMaxHeight,
