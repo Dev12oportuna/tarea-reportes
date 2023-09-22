@@ -50,7 +50,7 @@ function App() {
   
   const peticionGet =  async () => {
     try {
-      const response = await axios.get("https://sm.oportuna.red/getReportes");
+      const response = await axios.get("http://localhost:3001/get_reportes");
       const formattedData = response.data.map((item) => ({
         Cliente: item.cliente,
         Funcionario: item.funcionario,
