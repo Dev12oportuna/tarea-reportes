@@ -32,7 +32,7 @@ const LineChart = () => {
   const [dataLoaded, setDataLoaded] = useState(false)
   useEffect(() => {
     if (!dataLoaded) {
-      axios.get("https://sm.oportuna.red/getReportes")
+      axios.get("http://localhost:3001/api/get_reportes")
         .then((response) => {
           const datos = response.data;
   
