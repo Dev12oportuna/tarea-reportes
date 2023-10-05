@@ -26,12 +26,13 @@ function App() {
   
   const isSmallScreen = useMediaQuery("(max-width:600px)")
   const columns = [
-    { name: "Cliente", options: { filterOptions: { fullWidth: true } } },
+    { name: "Estudiante", options: { filterOptions: { fullWidth: true } } },
     "Funcionario",
     "Fecha",
     "Latitud",
-    "longitud",
-    "Tipo"
+    "Longitud",
+    "Tipo", 
+    "Identificador"
   ];
   const [isReadyForInstall, setIsReadyForInstall] = useState(false);
 
@@ -50,14 +51,16 @@ function App() {
   
   const peticionGet =  async () => {
     try {
-      const response = await axios.get("http://localhost:3001/api/get_reportes");
+      const response = await axios.get("https://sm.oportuna.red/getReportes");
       const formattedData = response.data.map((item) => ({
         Cliente: item.cliente,
         Funcionario: item.funcionario,
         Fecha: item.fecha,
         Latitud: item.lat,
         Longitud: item.lng,
-        Tipo: item.tipo
+        Tipo: item.tipo,
+        Identificador: item.identoficadorTipo
+
       }));
       setData(formattedData); 
     } catch (error) {

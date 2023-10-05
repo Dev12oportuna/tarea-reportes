@@ -16,7 +16,7 @@ const BarChart = () => {
     labels: [],
     datasets: [
       {
-        label: 'Cantidad de Registros por Cliente',
+        label: 'Cantidad de Registros por Estudiante',
         data: [],
         backgroundColor: []
       }
@@ -26,7 +26,7 @@ const BarChart = () => {
   const [dataLoaded, setDataLoaded] = useState(false)
   useEffect(() => {
     if (!dataLoaded) {
-      axios.get("http://localhost:3001/api/get_reportes")
+      axios.get("https://sm.oportuna.red/getReportes")
         .then((response) => {
           const datos = response.data;
   
@@ -79,9 +79,10 @@ const BarChart = () => {
     },
   };
   return (
-    <div style={{ width: '100%', maxWidth:'700'}}>
+    <div style={{ maxWidth:'700'}}>
       <Bar
       data={data}
+      height={300}
       options={options}
       />
     </div>

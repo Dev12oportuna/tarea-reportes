@@ -17,13 +17,9 @@ const LineChart = () => {
     labels: [],
     datasets: [
       {
-        label: 'Cantidad de Registros por Cliente',
+        label: 'Cantidad de Registros por Estudiante',
         data: [],
         backgroundColor: [
-            'rgb(255, 99, 132, 1)',
-            'rgb(54, 162, 235, 1)',
-            'rgb(255, 206, 86, 1)',
-            'rgb(75, 192, 192, 1)',
           ]
       },
     ],
@@ -32,7 +28,7 @@ const LineChart = () => {
   const [dataLoaded, setDataLoaded] = useState(false)
   useEffect(() => {
     if (!dataLoaded) {
-      axios.get("http://localhost:3001/api/get_reportes")
+      axios.get("https://sm.oportuna.red/getReportes")
         .then((response) => {
           const datos = response.data;
   
@@ -88,7 +84,7 @@ const LineChart = () => {
     <div style={{ width: '100%', maxWidth:'700px'}}>
       <Line
       data={data}
-      height={100}
+      height={300}
       options={options}
       />
     </div>

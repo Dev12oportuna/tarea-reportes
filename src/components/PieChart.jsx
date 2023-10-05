@@ -15,7 +15,7 @@ const PieChart = () => {
     labels: [],
     datasets: [
       {
-        label: 'Cantidad de Registros por Cliente',
+        label: 'Cantidad de Registros por Estudiante',
         data: [],
         backgroundColor: []
       }
@@ -25,7 +25,7 @@ const PieChart = () => {
   const [dataLoaded, setDataLoaded] = useState(false)
   useEffect(() => {
     if (!dataLoaded) {
-      axios.get("http://localhost:3001/api/get_reportes")
+      axios.get("https://sm.oportuna.red/getReportes")
         .then((response) => {
           const datos = response.data;
   
