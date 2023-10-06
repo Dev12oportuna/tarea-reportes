@@ -51,18 +51,22 @@ function App() {
   
   const peticionGet =  async () => {
     try {
-      const response = await axios.get("https://sm.oportuna.red/getReportes");
-      const formattedData = response.data.map((item) => ({
-        Cliente: item.cliente,
-        Funcionario: item.funcionario,
-        Fecha: item.fecha,
-        Latitud: item.lat,
-        Longitud: item.lng,
-        Tipo: item.tipo,
-        Identificador: item.identoficadorTipo
+        const response = await axios.get("http://localhost:8011/getReportes");
+        const formattedData = response.data.map((item) => ({
+          Estudiante: item.cliente,
+          Funcionario: item.funcionario,
+          Fecha: item.fecha,
+          Latitud: item.lat,
+          Longitud: item.lng,
+          Tipo: item.tipo,
+          Identificador: item.identificadorTipo
+        
+
 
       }));
       setData(formattedData); 
+
+      console.log(formattedData)
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -110,6 +114,7 @@ function App() {
   
 
   return (
+    
     <CacheProvider value={muiCache}>
       <ThemeProvider theme={createTheme()}>
       <Container maxWidth="lg">
@@ -126,7 +131,7 @@ function App() {
                       fullWidth
                       onClick={() => setShowBarChart(!showBarChart)}
                     >
-                      {showBarChart ? 'Ocultar BarChart' : 'Mostrar BarChart'}
+                      {showBarChart ? 'Ocultar' : 'Grafica De Barras'}
                     </Button>
                   </Grid>
                   <Grid item xs={12} sm={4}>
@@ -137,7 +142,7 @@ function App() {
                       fullWidth
                       onClick={() => setShowLineChart(!showLineChart)}
                     >
-                      {showLineChart ? 'Ocultar LineChart' : 'Mostrar LineChart'}
+                      {showLineChart ? 'Ocultar' : 'Grafica lineal'}
                     </Button>
                   </Grid>
                   <Grid item xs={12} sm={4}>
@@ -148,7 +153,7 @@ function App() {
                       fullWidth
                       onClick={() => setShowPieChart(!showPieChart)}
                     >
-                      {showPieChart ? 'Ocultar PieChart' : 'Mostrar PieChart'}
+                      {showPieChart ? 'Ocultar' : 'Grafica Circular'}
                     </Button>
                   </Grid>
                   <Grid item xs={12} sm={4}>
