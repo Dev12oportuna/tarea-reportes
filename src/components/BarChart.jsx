@@ -26,7 +26,7 @@ const BarChart = () => {
   const [dataLoaded, setDataLoaded] = useState(false)
   useEffect(() => {
     if (!dataLoaded) {
-      axios.get("http://localhost:8011/getReportes")
+      axios.get("https://sm.oportuna.red/getReportes")
         .then((response) => {
           const datos = response.data;
   
