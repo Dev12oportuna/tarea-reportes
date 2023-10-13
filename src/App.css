@@ -60,3 +60,43 @@
   cursor: auto;
 }
 
+.modal-maps {
+  align-items: center;
+  justify-content: center;
+  font-family: Lato, sans-serif;
+  color: seagreen;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Ajusta el ancho y la altura según tus necesidades */
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 5%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+
+#modal-title, #modal-description {
+  
+  text-align:center ;
+} 
+
+.boton-maps {
+  text-align: center;
+  justify-content: center;
+}
+
+/* refer the styles from package folder */
+@import '../node_modules/@syncfusion/ej2-base/styles/bootstrap5.css';
+@import '../node_modules/@syncfusion/ej2-icons/styles/bootstrap5.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/bootstrap5.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/bootstrap5.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/bootstrap5.css';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/bootstrap5.css';
+@import '../node_modules/@syncfusion/ej2-navigations/styles/bootstrap5.css';
+@import '../node_modules/@syncfusion/ej2-layouts/styles/bootstrap5.css';
+@import '../node_modules/@syncfusion/ej2-grids/styles/bootstrap5.css';
+@import "../node_modules/@syncfusion/ej2-react-filemanager/styles/bootstrap5.css";
