@@ -1,17 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration"
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration.js"
+import App from './App.js';
+import { setChonkyDefaults } from 'chonky';
+import { ChonkyIconFA } from 'chonky-icon-fontawesome';
+import { AuthProvider } from './context/authContext.jsx';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+//import { Auth0Provider } from '@auth0/auth0-react';
 
-
-import App from './App';
 //import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <Auth0Provider 
+    domain="dev-j55wwx3m21kqeokl.us.auth0.com"
+    clientId="cRVb3qouLK8bBN3eo6IFwltI9zYlJLSl"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+    >
+      </Auth0Provider> */}
+      <AuthProvider>
+
+        <App />
+      </AuthProvider>
+
+
+   
   </React.StrictMode>
 );
+
+setChonkyDefaults({ iconComponent: ChonkyIconFA });
 
 serviceWorkerRegistration.register({
   onUpdate: async (registration) => {

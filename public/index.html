@@ -9,7 +9,9 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <script defer="defer" src="/static/js/main.cf71c7bf.js"></script>
+
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <link href="/static/css/main.8070aee5.css" rel="stylesheet">
     <link href="style.css" rel=""/>
     <link rel="apple-touch-icon" href="/logo192.png" />
@@ -27,9 +29,10 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
     <style>
         .navbar {
-         
+        
           background-image: url(https://www.reviewbox.com.mx/wp-content/uploads/2019/07/33271973_m-1024x683.jpg);
           background-size:cover;
           background-repeat: no-repeat;
@@ -38,13 +41,13 @@
         }
         .container-fluid {
           width: 1170px;
-          height:  255px;
+          height:  225px;
           display: flex;
         }
         .imagen-navbar {
           padding-left: 30px;
           padding-top: 10px;
-          height: 80%;
+          height: 70%;
           width: auto;
         }
 
@@ -66,12 +69,14 @@
     <nav class="navbar">
       <div class="container-fluid">
         <img class="imagen-navbar" src="https://oportuna.red/torre/assets/grupos/125/logo125.png"/>
-        <div class="titulo">
+        <!-- <div class="titulo">
           <p>REPORTE DE ESTUDIANTE</p>
-        </div>
+        </div> -->
       </div>
     </nav>
-    <div id="root"></div>
+    <div id="root">
+      
+    </div>
     
     <!--
       This HTML file is a template.
@@ -83,5 +88,16 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    
+    <script src="https://www.gstatic.com/firebasejs/8.0/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyA7IqFj6GLBPpbQExZaDu0YBC5GQxQ41fc",
+        authDomain: "app-reportes-402301.firebaseapp.com",
+      };
+      firebase.initializeApp(config);
+    </script>
+
+      </script>
   </body>
 </html>

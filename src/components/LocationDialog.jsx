@@ -3,6 +3,8 @@ import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/
 import { GoogleMap, Marker } from "@react-google-maps/api";
 
 function LocationDialog({ isOpen, onClose, lat, lng }) {
+  //console.log(lat)
+  //console.log(lng)
   return (
     <Dialog
       open={isOpen}
@@ -12,12 +14,12 @@ function LocationDialog({ isOpen, onClose, lat, lng }) {
     >
       <DialogTitle id="dialog-title">Ubicación en Google Maps</DialogTitle>
       <DialogContent>
-        <GoogleMap mapContainerStyle={{ width: "500px", height: "500px" }} zoom={15} center={{ lat, lng }} markers={{ lat, lng }}>
-          <Marker options={{lat, lng}}/>
+        <GoogleMap mapContainerStyle={{ width: "500px", height: "500px" }} zoom={15} center={{ lat, lng }} >
+          <Marker position={{lat, lng}}/>
         </GoogleMap>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose} variant="contained" color="primary">
+        <Button onClick={onClose} /* variant="contained" */ color="primary">
           Cerrar
         </Button>
       </DialogActions>

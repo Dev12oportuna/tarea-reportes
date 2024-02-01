@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, Tooltip, Legend, ArcElement } from "chart.js"
+import { useAuth } from '../context/authContext';
 
 
 ChartJS.register(
@@ -23,9 +24,11 @@ const PieChart = () => {
   });
 
   const [dataLoaded, setDataLoaded] = useState(false)
+  const {user} = useAuth()
+
   useEffect(() => {
     if (!dataLoaded) {
-      axios.get("https://sm.oportuna.red/getReportes")
+      axios.post("https://sm.oportuna.red/getReportes", {email: user.Email})
         .then((response) => {
           const datos = response.data;
   

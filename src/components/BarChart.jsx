@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale } from "chart.js"
+import { useAuth } from '../context/authContext';
 
 
 ChartJS.register(
@@ -24,9 +25,12 @@ const BarChart = () => {
   });
 
   const [dataLoaded, setDataLoaded] = useState(false)
+  const {user} = useAuth()
+
+
   useEffect(() => {
     if (!dataLoaded) {
-      axios.get("https://sm.oportuna.red/getReportes")
+      axios.post("https://sm.oportuna.red/getReportes", {email: user.Email})
         .then((response) => {
           const datos = response.data;
   

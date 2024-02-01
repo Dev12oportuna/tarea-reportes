@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement } from "chart.js"
+import { useAuth } from '../context/authContext';
 
 
 ChartJS.register(
@@ -26,9 +27,11 @@ const LineChart = () => {
   });
 
   const [dataLoaded, setDataLoaded] = useState(false)
+  const {user} = useAuth()
+
   useEffect(() => {
     if (!dataLoaded) {
-      axios.get("https://sm.oportuna.red/getReportes")
+      axios.post("https://sm.oportuna.red/getReportes", {email: user.Email})
         .then((response) => {
           const datos = response.data;
   
